@@ -4,7 +4,7 @@ body {
   font-family: Inter, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #7700ee;
+  background-color: #1d1242;
   color: #fff;
   overflow-x: hidden;
 }
@@ -20,6 +20,10 @@ h1 {
   h1 {
     font-size: 3rem;
   }
+}
+
+.color-header {
+  color: rgb(255, 0, 0);
 }
 
 .unsupported-network {
@@ -116,7 +120,7 @@ h1 {
 
 button {
   cursor: pointer;
-  background-color: #000;
+  background-color: #9c07f9;
   color: #fff;
   border: none;
   font-weight: bold;
@@ -125,10 +129,12 @@ button {
   text-transform: uppercase;
   border-radius: 3rem;
   font-size: 1.2rem;
+  border: 1px solid white;
 }
 
 button:hover {
-  background-color: #121212;
+  filter: brightness(85%);
+  cursor: pointer;
 }
 
 button:focus {
