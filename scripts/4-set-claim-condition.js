@@ -13,7 +13,7 @@ const bundleDrop = sdk.getBundleDropModule("0x2548bA8968957daA079cC8bAE50729fcBb
   });
   
   await bundleDrop.setClaimCondition(0, claimConditionFactory);
-  console.log("✅ Sucessfully set claim condition!");
+  console.log("✅ Successfully set claim condition!");
   } catch(err) {
     console.error("❌ Failed to set claim condition!", err);
   }

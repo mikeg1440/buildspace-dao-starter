@@ -1,18 +1,22 @@
-import { ThirdwebSDK } from "@3rdweb/sdk";
+import { ThirdwebSDK } from '@3rdweb/sdk';
 import ethers from 'ethers';
 
 import dotenv from 'dotenv';
+
 dotenv.config();
 
-if ( !process.env.PRIVATE_KEY || process.env.PRIVATE_KEY == '' ){
-  console.log('Private key not found!')
+if (!process.env.PRIVATE_KEY || process.env.PRIVATE_KEY === '') {
+  // eslint-disable-next-line no-console
+  console.log('Private key not found!');
 }
 
-if ( !process.env.ALCHEMY_API_URL || process.env.ALCHEMY_API_URL == '' ){
+if (!process.env.ALCHEMY_API_URL || process.env.ALCHEMY_API_URL === '') {
+  // eslint-disable-next-line no-console
   console.log('Alchemy API URL not found!');
 }
 
-if ( !process.env.WALLET_ADDRESS || process.env.WALLET_ADDRESS == '' ){
+if (!process.env.WALLET_ADDRESS || process.env.WALLET_ADDRESS === '') {
+  // eslint-disable-next-line no-console
   console.log('Wallet address not found!');
 }
 
@@ -25,13 +29,15 @@ const sdk = new ThirdwebSDK(
 );
 
 (async () => {
-try {
-  const apps = await sdk.getApps();
-  console.log('Your app address is: ', apps[0].address);
-} catch (err) {
-  console.error('Failed to get apps from the sdk', err);
-  process.exit(1);
-}
-})()
+  try {
+    const apps = await sdk.getApps();
+    // eslint-disable-next-line no-console
+    console.log('Your app address is: ', apps[0].address);
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error('Failed to get apps from the sdk', err);
+    process.exit(1);
+  }
+})();
 
 export default sdk;
