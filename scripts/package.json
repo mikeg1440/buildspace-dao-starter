@@ -1,4 +1,4 @@
-[
-  'name': 'My DAO Script',
-  'type': 'module'
-]
+{
+  "name": "My DAO Script",
+  "type": "module"
+}
