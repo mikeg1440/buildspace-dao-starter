@@ -59,11 +59,11 @@ export default function App() {
 
   if (!address) {
     return (
-      <div className="landing">
+      <div>
         <img src={SnorlaxImage} alt="Snorlax Icon" style={{ width: '60%', margin: 'auto' }} />
         <h1>
           Welcome to
-          <span className="color-header">PokéDAO</span>
+          <span className="color-header poketext-logo">PokéDAO</span>
         </h1>
         <button type="button" onClick={() => connectWallet('injected')} className="btn-hero">
           Connect to wallet
@@ -74,7 +74,7 @@ export default function App() {
   if (hasClaimedNFT) {
     return (
       <div className="member-page">
-        <h1>DAO Member Page</h1>
+        <h1 className='poketext'>DAO Member Page</h1>
         <p>Congratulations on being a member!</p>
       </div>
     );
