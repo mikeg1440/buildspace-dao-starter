@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable react/function-component-definition */
@@ -31,6 +32,7 @@ export default function App() {
   const [hasClaimedNFT, setHasClaimedNFT] = useState(false);
 
   useEffect(() => {
+    if (address !== null) return;
     // pass the signer to the sdk so we can interact with the contract
     sdk.setProviderOrSigner(signer);
   }, [signer]);
@@ -57,29 +59,6 @@ export default function App() {
       });
   }, [address]);
 
-  if (!address) {
-    return (
-      <div>
-        <img src={SnorlaxImage} alt="Snorlax Icon" style={{ width: '60%', margin: 'auto' }} />
-        <h1>
-          Welcome to
-          <span className="color-header poketext-logo">PokéDAO</span>
-        </h1>
-        <button type="button" onClick={() => connectWallet('injected')} className="btn-hero">
-          Connect to wallet
-        </button>
-      </div>
-    );
-  }
-  if (hasClaimedNFT) {
-    return (
-      <div className="member-page">
-        <h1 className='poketext'>DAO Member Page</h1>
-        <p>Congratulations on being a member!</p>
-      </div>
-    );
-  }
-
   const mintNft = () => {
     setIsClaiming(true);
     // Call bundleDropModule.claim("0", 1) to mint a single nft (id === 0) to user's wallet
@@ -97,6 +76,29 @@ export default function App() {
       });
   };
 
+  if (!address) {
+    return (
+      <div>
+        <img src={SnorlaxImage} alt="Snorlax Icon" style={{ width: '60%', margin: 'auto' }} />
+        <h1>
+          Welcome to
+          <span className="color-header poketext-logo">PokéDAO</span>
+        </h1>
+        <button type="button" onClick={() => connectWallet('injected')} className="btn-hero">
+          Connect to wallet
+        </button>
+      </div>
+    );
+  }
+
+  if (hasClaimedNFT) {
+    return (
+      <div className="member-page">
+        <h1 className="poketext">DAO Member Page</h1>
+        <p>Congratulations on being a member!</p>
+      </div>
+    );
+  }
   return (
     <div className="mint-nft">
       <div className="image-container">
